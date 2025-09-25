@@ -27,3 +27,123 @@
       justify-content: space-between;
       font-weight: bold;
     }
+
+/* Targetar bara sektionen med class min-del */
+.min-del {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 20px auto;
+    color: #222;
+    font-family: 'Arial', sans-serif;
+    border: 2px solid rgba(75, 0, 130, 0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* Rubriken */
+.min-del h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4b0082;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.min-del h2::after {
+    content: " 🏴‍☠️";
+    font-size: 1.5rem;
+    animation: pirate-wave 2s ease-in-out infinite;
+}
+
+@keyframes pirate-wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Lista */
+.min-del ol li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Blockquotes */
+.min-del blockquote {
+    font-style: italic;
+    color: #d2691e;
+    margin-left: 20px;
+    border-left: 3px solid #ffa500;
+    padding-left: 15px;
+}
+
+/* Skatter - Enhanced for Rum 11! - GÖMDA MEN HINTBARA */
+.min-del .skatt {
+    cursor: pointer;
+    font-size: 2.5rem;
+    display: inline-block;
+    margin: 10px;
+    transition: all 0.4s ease;
+    position: relative;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.1));
+    opacity: 0.1;
+    transform: scale(0.3);
+    color: transparent;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+/* När man hovrar över området - HINT! */
+.min-del .skatt:hover {
+    opacity: 0.4;
+    transform: scale(0.6);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes treasure-pulse {
+    0%, 100% { transform: scale(1.4) rotate(10deg); }
+    50% { transform: scale(1.5) rotate(15deg); }
+}
+
+/* När skatterna hittas - RUM 11 STYLE! - NU SYNS DE! */
+.min-del .skatt.found {
+    color: #28a745;
+    text-shadow: 0 0 20px #28ff99, 0 0 40px #28ff99, 0 0 60px #28ff99;
+    transform: scale(1.2) rotate(-5deg);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease-in-out;
+    animation: found-treasure 1s ease-in-out;
+}
+
+/* Synliga skatter (innan de hittas) */
+.min-del .skatt.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+/* Hover-effekt bara på synliga skatter */
+.min-del .skatt.visible:hover {
+    transform: scale(1.4) rotate(10deg);
+    text-shadow: 0 0 15px #ffd700, 0 0 30px #ff8c00;
+    filter: drop-shadow(0 0 15px #ffd700) brightness(1.2);
+    animation: treasure-pulse 0.5s ease-in-out;
+}
+
+@keyframes found-treasure {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.5) rotate(180deg); }
+    50% { transform: scale(1.3) rotate(360deg); }
+    100% { transform: scale(1.2) rotate(-5deg); }
+}
+
+/* Kod-element */
+.min-del code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}

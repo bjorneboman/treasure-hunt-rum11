@@ -6,39 +6,74 @@
   padding: 0;
 }
 
-.body {
-  font-family: Arial, sans-serif; 
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  padding: 20px;
-  line-height: 1.6;
-  min-height: 100vh;
+/* Page base */
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: linear-gradient(180deg, #f7f9ff 0%, #eef3ff 100%);
+    color: #1f2937;
+    min-height: 100vh;
+    padding: 24px;
+    line-height: 1.6;
 }
 
 #hud {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #333;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-    }
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    width: auto;
+    background: rgba(17,24,39,0.8);
+    color: #fff;
+    padding: 8px 12px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-weight: 700;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+}
 
-/* Targetar bara sektionen med class min-del */
+/* Card-like section used for each contributor */
 .min-del {
-    background: rgba(0, 0, 0, 0.05);
-    padding: 25px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.98));
+    padding: 28px 26px;
     border-radius: 12px;
-    max-width: 800px;
-    margin: 20px auto;
-    color: #222;
+    max-width: 920px;
+    margin: 28px auto;
+    color: #111827;
     font-family: 'Arial', sans-serif;
-    border: 2px solid rgba(75, 0, 130, 0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(75, 0, 130, 0.12);
+    box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+    overflow: hidden;
+}
+
+.min-del + .min-del {
+    margin-top: 18px;
+}
+
+.min-del p,
+.min-del ul,
+.min-del ol {
+    margin-bottom: 14px;
+}
+
+.min-del ul,
+.min-del ol {
+    padding-left: 1.15rem;
+}
+
+/* Page header */
+header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+header h1 {
+    font-size: 2.6rem;
+    color: #111827;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 18px rgba(16,24,40,0.06);
 }
 
 /* Rubriken */
@@ -89,6 +124,19 @@
     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
 }
 
+/* Hintable state used by JS before item is found */
+.hintable {
+    opacity: 0.95;
+    color: transparent; /* hide text/emoji baseline to encourage searching */
+    transition: all 0.28s ease;
+}
+
+.hintable:hover {
+    color: rgba(255,215,0,0.7);
+    transform: scale(1.05);
+    text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
 /* Hover-effekt på skatterna - Extra epic! */
 .min-del .skatt:hover {
     transform: scale(1.4) rotate(10deg);
@@ -112,6 +160,13 @@
     animation: found-treasure 1s ease-in-out;
 }
 
+/* Treasure (Björn) should use the same found visual language */
+.treasure.found {
+    color: #28a745 !important;
+    text-shadow: 0 0 20px #28ff99;
+    transform: scale(1.05);
+}
+
 @keyframes found-treasure {
     0% { transform: scale(1) rotate(0deg); }
     25% { transform: scale(1.5) rotate(180deg); }
@@ -126,3 +181,105 @@
     border-radius: 4px;
     font-family: 'Courier New', monospace;
 }
+
+
+
+
+/* Björns del - Targetar bara treasure-elementen */
+.treasure {
+    transition: all 0.3s ease;
+/*  cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+*/
+    }
+
+/* Hover-effekt - Glödande och lite puls */
+.treasure:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #1e90ff;
+    /* background: linear-gradient(45deg, #00bfff, #1e90ff); */
+}
+
+/* När en skatt är hittad */
+.treasure.found {
+    background: #28a745;
+    color: white;
+    text-decoration: line-through;
+    opacity: 0.8;
+    transform: scale(1.05);
+    text-shadow: 0 0 10px #28ff99, 0 0 20px #28ff99;
+    transition: all 0.4s ease-in-out;
+    animation: bjorn-found 1s ease-in-out;
+}
+
+@keyframes bjorn-found {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.3) rotate(10deg); }
+    50% { transform: scale(1.2) rotate(-10deg); }
+    100% { transform: scale(1.05) rotate(0deg); }
+}
+
+/* Lista-styling för Björn */
+ul li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+ul li strong {
+    color: #1e90ff;
+}
+
+ul li blockquote {
+    font-style: italic;
+    color: #4682b4;
+    margin-left: 15px;
+    border-left: 3px solid #1e90ff;
+    padding-left: 10px;
+}
+
+/* Björn - scoped treasure rules (targets only the specific IDs in Björns text) */
+/* #treasure6,
+#treasure7,
+#treasure8,
+#treasure9,
+#treasure9 li {
+    cursor: pointer;
+    font-weight: 700;
+    color: transparent; /* hidden baseline, hint on hover 
+    transition: all 0.28s ease;
+    text-shadow: 0 0 8px rgba(255,215,0,0.08);
+    background: none;
+    padding: 0;
+    border-radius: 3px;
+    display: inline;
+} */
+
+#treasure6:hover,
+#treasure7:hover,
+#treasure8:hover,
+#treasure9:hover,
+#treasure9 li:hover {
+    color: rgba(255,215,0,0.55);
+    transform: scale(1.06);
+    text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+#treasure6.found,
+#treasure7.found,
+#treasure8.found,
+#treasure9.found,
+#treasure9 li.found {
+    color: #28a745 !important;
+    text-shadow: 0 0 14px #28ff99;
+    background: rgba(0,0,0,0.03);
+    text-decoration: line-through;
+    opacity: 0.95;
+}
+
+

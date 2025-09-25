@@ -29,7 +29,9 @@ totalCountEl.textContent = allTreasure.length;
 
 allTreasure.forEach(el => {
   // initial hint state: small opacity
-  el.classList.add('hintable');
+  if(el.classList.contains("skatt")){
+    el.classList.add('hintable');
+  }
 
   el.addEventListener('click', (e) => {
     if (el.classList.contains('found')) return;

@@ -187,22 +187,23 @@ header h1 {
 
 /* Björns del - Targetar bara treasure-elementen */
 .treasure {
-    cursor: pointer;
     transition: all 0.3s ease;
+/*  cursor: pointer;
     padding: 2px 5px;
     border-radius: 5px;
     display: inline-block;
     font-weight: bold;
     background: linear-gradient(45deg, #1e90ff, #00bfff);
     color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+*/
+    }
 
 /* Hover-effekt - Glödande och lite puls */
 .treasure:hover {
     transform: scale(1.1);
     text-shadow: 0 0 10px #00f0ff, 0 0 20px #1e90ff;
-    background: linear-gradient(45deg, #00bfff, #1e90ff);
+    /* background: linear-gradient(45deg, #00bfff, #1e90ff); */
 }
 
 /* När en skatt är hittad */
@@ -243,21 +244,21 @@ ul li blockquote {
 }
 
 /* Björn - scoped treasure rules (targets only the specific IDs in Björns text) */
-#treasure6,
+/* #treasure6,
 #treasure7,
 #treasure8,
 #treasure9,
 #treasure9 li {
     cursor: pointer;
     font-weight: 700;
-    color: transparent; /* hidden baseline, hint on hover */
+    color: transparent; /* hidden baseline, hint on hover 
     transition: all 0.28s ease;
     text-shadow: 0 0 8px rgba(255,215,0,0.08);
     background: none;
     padding: 0;
     border-radius: 3px;
     display: inline;
-}
+} */
 
 #treasure6:hover,
 #treasure7:hover,
